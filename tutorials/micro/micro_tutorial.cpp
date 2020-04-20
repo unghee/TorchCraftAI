@@ -399,7 +399,8 @@ int main(int argc, char** argv) {
   FLAGS_lr = 1e-2;
   FLAGS_optim = "adam";
   gflags::ParseCommandLineFlags(&argc, &argv, true);
-
+  cherrypi::ForkServer::startForkServer();
+  
   if (FLAGS_list_scenarios) {
     auto scenarioNames = cherrypi::MicroScenarioProviderFixed::listScenarios();
     for (auto& scenarioName : scenarioNames) {
